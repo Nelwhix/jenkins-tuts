@@ -1,9 +1,13 @@
 pipeline {
-    agent { docker { image 'php:8.4.2-alpine3.21' } }
+    agent any
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'php --version'
+                sh 'echo "Hello World"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
             }
         }
     }
